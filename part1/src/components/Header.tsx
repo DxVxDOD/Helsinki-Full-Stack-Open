@@ -1,8 +1,8 @@
-import React from 'react'
+import course from "../types/course.type";
 
-const Header = ({course}: {course: string}) => {
+const Header = ({course}: {course: course}) => {
   return (
-    <h1>{course}</h1>
+    <h1>{course.name}</h1>
   )
 }
 
