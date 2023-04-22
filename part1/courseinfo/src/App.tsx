@@ -1,6 +1,7 @@
 import Content from "./components/Content"
 import Header from "./components/Header"
 import Total from "./components/Total"
+import { useState } from "react"
 
 const App = () => {
 
@@ -22,11 +23,19 @@ const App = () => {
     ]
   }
 
+  const [ counter, setCounter ] = useState(0)
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+
   return (
     <div>
       <Header course={course} />
       <Content course={course} />
-      <Total course={course} /> 
+      <Total course={course} />
+      <>{counter}</>
     </div>
   )
 }
