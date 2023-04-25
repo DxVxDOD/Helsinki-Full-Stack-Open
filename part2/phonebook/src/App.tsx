@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Numbers from './components/Numbers';
 import Persons from './components/Persons';
 import Phonebook from './components/Phonebook';
-import axios from 'axios'
 import personType from './types/person.type';
+import personService from './services/persons';
 
 const App = () => {
   const [persons, setPersons] = useState<personType[]>([]);
@@ -19,28 +19,31 @@ const App = () => {
   const detailHandler = (event: React.FormEvent) => {
     event.preventDefault();
     setNewID(listOfIds.length + 1);
+    const person = { name: newName, number: newNumber, id: newID };
       if (!listOfNames.includes(newName.toLowerCase()) && !listofNumbers.includes(newNumber)
           && !isNaN(newNumber) && newName !== '') {
-        setPersons(persons.concat({name: newName, number: newNumber, id: newID})); 
-        setNewName('');
-        setNewNumber(0);
+            setPersons(persons.concat(person)); 
+            setNewName('');
+            setNewNumber(0);
+            personService.postPerson(person);
+
       } else if (listOfNames.includes(newName.toLowerCase()) && newNumber) {
-        alert(`${newName} already exists`);
-        setNewName('');
+
+          alert(`${newName} already exists`);
+          setNewName('');
+
       } else if (listofNumbers.includes(newNumber) && newName) {
-        alert(`${newNumber} already exists`);
-        setNewNumber(0);
+
+          alert(`${newNumber} already exists`);
+          setNewNumber(0);
+
       } else if (isNaN(newNumber)) alert('You need to enter a valid number');
         else if (newName === '') alert('You need to enter a valid name');
         else alert('You need to enter valid values!');
     }
 
     useEffect(() => {
-        axios
-        .get('http://localhost:3001/persons')
-        .then(response => {
-          setPersons(response.data);
-        })
+        personService.getAll().then(initialPersons => setPersons(initialPersons));
     }, []);
 
   return (

@@ -1,3 +1,3 @@
-const Number = ({name, number}: {name: string, number: number}) => { return <li>{name}: {number}</li> }
+const Number = ({name, number}: {name: string, number: number}) => { return <>{name}: {number}</> }
 
-export default Number
+export default Number;

@@ -6,9 +6,7 @@ const Phonebook = (
         {persons: personType[], filteredNames: string, setFilteredNames: React.Dispatch<React.SetStateAction<string>>}
     ) => {
 
-      const searchResult = persons.map((person: personType) => {
-        if (person.name === filteredNames) return `${person.name}: ${person.number}`;
-      })
+      const searchResult = persons.map((person: personType) => person.name === filteredNames ? `${person.name}: ${person.number}` : '');
       
   return (
     <>
