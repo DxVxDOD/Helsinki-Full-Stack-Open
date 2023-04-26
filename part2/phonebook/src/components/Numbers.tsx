@@ -4,7 +4,7 @@ import personService from "../services/persons";
 
 const handleDelete = (person: personType) => {
   personService.deletePerson(person.id);
-  window.confirm(`Are you sure you want to delete ${person.name}`)
+  window.confirm(`Are you sure you want to delete ${person.name} ?`);
   window.location.reload();
 }
 

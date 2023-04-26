@@ -9,16 +9,10 @@ const getAll = async () => {
     return response.data;
 }
 
-const postPerson = async (newPost: personType) => {
-    const request = axios.post(baseURL, newPost);
-    const response = await request;
-    return response.data;
-} 
+const postPerson = async (newPost: personType) => axios.post(baseURL, newPost);
 
-const deletePerson = async (personId: number) => {
-    const request = axios.delete(`${baseURL}/${personId}`);
-    const response = await request;
-    return response;
-}
+const deletePerson = async (personId: number) => axios.delete(`${baseURL}/${personId}`);
 
-export default { getAll, postPerson, deletePerson };
+const updatePerson = async (id: number, changedPerson: personType) => axios.put(`${baseURL}/${id}`, changedPerson);
+
+export default { getAll, postPerson, deletePerson, updatePerson };
