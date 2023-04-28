@@ -1,7 +1,7 @@
 import axios from "axios";
 import personType from "../types/person.type";
 
-const baseURL = 'http://localhost:3001/persons';
+const baseURL = '/api/persons';
 
 const getAll = async () => {
     const request = axios.get(baseURL);
