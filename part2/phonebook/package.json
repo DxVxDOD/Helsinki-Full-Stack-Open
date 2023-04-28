@@ -29,6 +29,5 @@
     "json-server": "^0.17.3",
     "typescript": "^5.0.2",
     "vite": "^4.3.0"
-  },
-  "proxy": "http://localhost:3001"
+  }
 }
