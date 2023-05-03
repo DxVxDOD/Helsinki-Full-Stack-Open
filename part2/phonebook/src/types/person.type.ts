@@ -1,5 +1,5 @@
 export default interface personType {
     name: string,
-    number: number,
+    number: string,
     id: number
 }

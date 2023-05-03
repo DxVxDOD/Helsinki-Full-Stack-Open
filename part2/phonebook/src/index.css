@@ -68,12 +68,21 @@ button:focus-visible {
   }
 }
 
-.success {
-  color: green;
+.success, 
+.error {
   background: lightgrey;
   font-size: 20px;
-  border: green solid 2px;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.success{
+  color: green;
+  border: green solid 2px;
+}
+
+.error{
+  color: red;
+  border: red solid 2px;
 }

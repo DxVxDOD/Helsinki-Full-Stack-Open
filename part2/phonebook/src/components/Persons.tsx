@@ -2,8 +2,8 @@ import React from 'react';
 
 const Persons = (
         { detailHandler, newName, newNumber, setNewName, setNewNumber}: 
-        { detailHandler: (event: React.FormEvent) => void, newName: string, newNumber: number, 
-        setNewName: React.Dispatch<React.SetStateAction<string>>, setNewNumber: React.Dispatch<React.SetStateAction<number>> }
+        { detailHandler: (event: React.FormEvent) => void, newName: string, newNumber: string, 
+        setNewName: React.Dispatch<React.SetStateAction<string>>, setNewNumber: React.Dispatch<React.SetStateAction<string>> }
     ) => {
   return (
     <>
@@ -13,7 +13,7 @@ const Persons = (
             Name: <input type='text' value={newName} onChange={(event) => setNewName(event.target.value) } />
         </div>
         <div>
-            Number: <input type='number' value={newNumber} onChange={(event) => setNewNumber(event.target.valueAsNumber) } />
+            Number: <input type='text' value={newNumber} onChange={(event) => setNewNumber(event.target.value) } />
         </div>
         <p>
           <button type="submit">Add</button>
