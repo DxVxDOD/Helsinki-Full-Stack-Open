@@ -1,5 +1,6 @@
-export default interface personType {
-    name: string,
-    number: string,
-    id: number
-}
+type PersonType = {
+	name: string;
+	number: string;
+	id: number;
+};
+export default PersonType;
